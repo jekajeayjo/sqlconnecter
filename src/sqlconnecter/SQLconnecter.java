@@ -14,7 +14,9 @@ import java.sql.Statement;
  */
 
 public class SQLconnecter {
-public static final String  URL="jdbc:sqlserver://localhost;databaseName=D:\\УЧЕБА\\3 КУРС\\2 СЕМЕСТР\\КУРСОВАЯ\\REM.MDF;integratedSecurity=true;";
+     private static String username = "user";
+    private static String password = "root";
+public static final String  URL="jdbc:sqlserver://localhost:1433;databaseName=rem.mdf;integratedSecurity=true;";
  
 
     public static void main(String[] args) {
@@ -25,10 +27,10 @@ public static final String  URL="jdbc:sqlserver://localhost;databaseName=D:\\У�
     private void testDatabase() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://localhost;databaseName=D:\\УЧЕБА\\3 КУРС\\2 СЕМЕСТР\\КУРСОВАЯ\\REM.MDF;integratedSecurity=true;";
+        
  
 
-            Connection con = DriverManager.getConnection(url);
+            Connection con = DriverManager.getConnection(URL,username,password);
             try {
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM  Clients");
