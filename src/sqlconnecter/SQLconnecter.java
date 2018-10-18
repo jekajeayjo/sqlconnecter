@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import com.microsoft.sqlserver.jdbc.SQLServerDriver;
 /**
  *
  * @author User
@@ -16,7 +17,7 @@ import java.sql.Statement;
 public class SQLconnecter {
      private static String username = "kob";
     private static String password = "w3347986";
-public static final String  URL=" jdbc:sqlserver://127.0.0.1:1433;databaseName=rem.mdf;integratedSecurity=true;";
+public static final String  URL=" jdbc:sqlserver://127.0.0.1:1433;databaseName=rem.mdf;";
 
  
 
