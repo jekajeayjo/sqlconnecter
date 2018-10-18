@@ -14,9 +14,10 @@ import java.sql.Statement;
  */
 
 public class SQLconnecter {
-     private static String username = "user";
-    private static String password = "root";
-public static final String  URL="jdbc:sqlserver://localhost:1433;databaseName=rem.mdf;integratedSecurity=true;";
+     private static String username = "kob";
+    private static String password = "w3347986";
+public static final String  URL=" jdbc:sqlserver://127.0.0.1:1433;databaseName=rem.mdf;integratedSecurity=true;";
+
  
 
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public static final String  URL="jdbc:sqlserver://localhost:1433;databaseName=re
  
     private void testDatabase() {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
         
  
 
