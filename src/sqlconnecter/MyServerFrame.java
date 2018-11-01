@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -24,6 +25,7 @@ public class MyServerFrame extends javax.swing.JFrame {
   static InputStreamReader isr;
  static BufferedReader br;
  static String message="";
+ static String mes="";
     public MyServerFrame() {
         initComponents();
     }
@@ -65,8 +67,8 @@ public class MyServerFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -84,7 +86,7 @@ public class MyServerFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,6 +133,7 @@ public class MyServerFrame extends javax.swing.JFrame {
         s=ss.accept();
         isr = new   InputStreamReader(s.getInputStream());
         br=new BufferedReader (isr);
+     
         message=br.readLine();
         System.out.println(message);
         if(jTextArea1.getText().toString().equals(""))
@@ -138,9 +141,15 @@ public class MyServerFrame extends javax.swing.JFrame {
         else
             jTextArea1.setText(jTextArea1.getText()+"\n"+message);
         jTextArea1.setText(message);
+        
+        
+        
         SQLConnecter  sql=new SQLConnecter ();
-        String mes=sql.con(message);
+          mes="";
+                mes=sql.con(message);
         jTextArea2.setText(mes);
+        ServConnecter serv=new ServConnecter();
+        serv.send();
         }
         } 
         catch(IOException e)

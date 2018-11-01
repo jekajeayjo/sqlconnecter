@@ -24,6 +24,7 @@ public class Solution {
        SQLConnecter cone=new SQLConnecter();
     String mes=   cone.con("Select id  from dbo.enter where loginn='ad' and passwordd=123;");
       System.out.println(mes);
+     
     }
     
 }
