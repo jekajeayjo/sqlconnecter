@@ -5,6 +5,8 @@
  */
 package sqlconnecter;
 
+import java.io.BufferedOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -15,19 +17,22 @@ import static sqlconnecter.MyServerFrame.mes;
  * @author User
  */
 public class ServConnecter  extends Thread {
-    
+    String me1[]={
+"g/qwer",
+"j/asdf/"};
    public void send ()
    {
    try
 {
 
-Socket s=     new Socket("192.168.0.100",8081);   
+Socket s=     new Socket("192.168.0.102",8081);   
 PrintWriter pw=new PrintWriter(s.getOutputStream());
+
 pw.write(mes);
 pw.flush();
 pw.close();
 s.close();
-System.out.println("Send:"+mes);
+
 }
 catch(IOException e)
 {

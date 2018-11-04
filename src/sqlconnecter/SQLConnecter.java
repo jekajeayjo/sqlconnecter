@@ -46,10 +46,15 @@ public class SQLConnecter extends ServConnecter  {
             {
                 for (int i = 1; i <= x; i++)
                 {
-                    mes+=rs.getString(i);
-                    System.out.print(rs.getString(i) + "\t");
+                    
+                    mes+=rs.getString(i)+" ";
+                    System.out.print(rs.getString(i) + " \t");
+                    if (i%6==0)
+                        mes+="\n";
+                   
                 }
                 System.out.println();
+                
             }
             System.out.println();
            

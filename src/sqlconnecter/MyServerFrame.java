@@ -141,6 +141,7 @@ public class MyServerFrame extends javax.swing.JFrame {
         else
             jTextArea1.setText(jTextArea1.getText()+"\n"+message);
         jTextArea1.setText(message);
+     
         
         
         
@@ -148,8 +149,10 @@ public class MyServerFrame extends javax.swing.JFrame {
           mes="";
                 mes=sql.con(message);
         jTextArea2.setText(mes);
+           
         ServConnecter serv=new ServConnecter();
         serv.send();
+        
         }
         } 
         catch(IOException e)
